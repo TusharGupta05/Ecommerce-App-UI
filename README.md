@@ -1,6 +1,9 @@
 # iitd_task_ecommerce_app
  Hi, I have created the front page of an ecommerce app in Flutter.
+# Steps to run the app
+ Just like any other flutter project, this project can also be run. No special instruction is required.
 Following are some demo photos of this app. These photos can be downloaded from the repository also:
+
 ![Screenshot](device-2020-12-23-015348.png)
 ![Screenshot](device-2020-12-23-015421.png)
 ![Screenshot](device-2020-12-23-015445.png)
