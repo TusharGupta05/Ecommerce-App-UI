@@ -225,20 +225,24 @@ class LoggedOutUserScreen extends StatelessWidget {
         icon.value = Icons.location_off;
         return;
       } else {
-        Geolocator.requestPermission().then((value) {
+        await Geolocator.requestPermission().then((value) async {
           if (value == LocationPermission.always ||
               value == LocationPermission.whileInUse) {
             location.value = "fetching location";
             icon.value = Icons.location_on;
-            Geolocator.getCurrentPosition(timeLimit: Duration(seconds: 60))
-                .then((value) {
-              Geocoder.local
+            await Geolocator.getCurrentPosition(timeLimit: Duration(seconds: 60))
+                .then((value) async {
+              await Geocoder.local
                   .findAddressesFromCoordinates(
                       Coordinates(value.latitude, value.longitude))
                   .then((addresses) {
                 location.value = addresses.first.addressLine.toString();
               });
             });
+          } else {
+            location.value = "Your Location";
+            icon.value = Icons.location_off;
+            return;
           }
         });
       }
